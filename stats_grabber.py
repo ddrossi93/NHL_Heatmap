@@ -5,7 +5,7 @@ import json
 # get JSON from API
 # TODO: choose a different game
 data = req.get(
-    'https://statsapi.web.nhl.com/api/v1/game/2016020143/feed/live').json()
+    'https://statsapi.web.nhl.com/api/v1/game/2017030224/feed/live').json()
 
 # grab all plays from game
 plays = data['liveData']['plays']['allPlays']
