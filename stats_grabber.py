@@ -1,6 +1,7 @@
 # import dependencies
 import requests as req
 import json
+import pymongo
 
 # get JSON from API
 # TODO: choose a different game
@@ -24,16 +25,19 @@ for play in plays:
         d = {
             'event': '',
             'shooter': '',
+            'team': '',
             'goalie': '',
             'x': '',
             'y': ''
         }
         shooter = play['players'][0]['player']['fullName']
+        team = play['team']['name']
         goalie = play['players'][1]['player']['fullName']
         x = play['coordinates']['x']
         y = play['coordinates']['y']
         d['event'] = event
         d['shooter'] = shooter
+        d['team'] = team
         d['goalie'] = goalie
         d['x'] = x
         d['y'] = y
@@ -41,6 +45,7 @@ for play in plays:
         d = {
             'event': '',
             'shooter': '',
+            'team': '',
             'goalie': '',
             'x': '',
             'y': ''
@@ -50,10 +55,12 @@ for play in plays:
                 shooter = player['player']['fullName']
             elif player['playerType'] == 'Goalie':
                 goalie = player['player']['fullName']
+        team = play['team']['name']
         x = play['coordinates']['x']
         y = play['coordinates']['y']
         d['event'] = event
         d['shooter'] = shooter
+        d['team'] = team
         d['goalie'] = goalie
         d['x'] = x
         d['y'] = y
@@ -65,10 +72,12 @@ for play in plays:
             'y': ''
         }
         hitter = play['players'][0]['player']['fullName']
+        team = play['team']['name']
         x = play['coordinates']['x']
         y = play['coordinates']['y']
         d['event'] = event
         d['hitter'] = hitter
+        d['team'] = team
         d['x'] = x
         d['y'] = y
 
