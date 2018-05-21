@@ -16,8 +16,8 @@ stats_grabber.get_data()
 @app.route("/")
 def index():
     shot_data = mongo.db.shots.find()
-    # goal_data
-    # hit_data
+    goal_data = mongo.db.goals.find()
+    hit_data = mongo.db.hits.find()
     return render_template("index.html", shot_data=shot_data)
 
 

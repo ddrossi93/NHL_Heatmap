@@ -5,6 +5,13 @@ def get_data():
     import json
     import pymongo
 
+    # connect to db
+    # TODO: add unique ID to each entry
+    conn = 'mongodb://localhost:27017'
+    client = pymongo.MongoClient(conn)
+    db = client.app
+    client.drop_database('app')
+
     # get JSON from API
     # TODO: choose a different game
     data = req.get(
@@ -89,13 +96,6 @@ def get_data():
             goals.append(d)
         elif event == 'Hit':
             hits.append(d)
-
-    # connect to db
-    # TODO: add unique ID to each entry
-    conn = 'mongodb://localhost:27017'
-    client = pymongo.MongoClient(conn)
-
-    db = client.app
 
     # add shot coordinates to db
     # TODO: add more info (player, team, period, etc.)
