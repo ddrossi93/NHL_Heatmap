@@ -7,8 +7,10 @@
 </head>
 
 <body>
-  {% for shot in shot_data %} {{shot.shooter}} {% endfor %}
-
+  <script type="text/javascript">
+    var shot_data = {{ shot_data|tojson|safe }};
+  </script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
 </body>
 
 </html>
