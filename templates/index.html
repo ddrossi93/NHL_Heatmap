@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>NHL Heatmap</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var shot_data = {{ shot_data|tojson|safe }};
+  </script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
+</body>
+
+</html>
