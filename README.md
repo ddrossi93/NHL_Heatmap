@@ -17,15 +17,15 @@ http://statsapi.web.nhl.com/api/v1/game/2017030226/feed/live
 
 ### Inspiring Visualizations:
 
-<img src="IMG1.png" />
+<img src="IMG1.png" alt="attachment:IMG1.png" />
 
-<img src="IMG2.png" />
+<img src="IMG2.png" alt="attachment:IMG2.png" />
 
-<img src="IMG3.png" />
+<img src="IMG3.png" alt="attachment:IMG3.png" />
 
 ### Final Design:
 
-<img src="IMG4.png" />
+<img src="IMG4.png" alt="attachment:IMG4.png" />
 
 #### GitHub Repository:
 https://github.com/ddrossi93/NHL_Heatmap 
