@@ -9,6 +9,8 @@
 <body>
   <script type="text/javascript">
     var shot_data = {{ shot_data|tojson|safe }};
+    var goal_data = {{ goal_data|tojson|safe }};
+    var hit_data = {{ hit_data|tojson|safe }};
   </script>
   <script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
 </body>
