@@ -96,32 +96,12 @@ const convertCoordinates = (coordinates, period) => {
   coordinates.y = (coordinates.y * -1) + 42
 return coordinates }
 
-// var grid_location = []
-// for (i = 0; i < shot_json.length; i++) {
-//   grid_location.push([shot_json[i].x, shot_json[i].y])
-// }
+var grid_location = []
+for (i = 0; i < shot_json.length; i++) {
+  grid_location.push([shot_json[i].x, shot_json[i].y])
+}
 
-// console.log(grid_location)
-
-// var xScale = d3.scaleLinear()
-//   .domain([-100, 100])
-//   .range([0, w])
-
-// var yScale = d3.scaleLinear()
-//   .domain([-42.5, 42.5])
-//   .range([0, h])
-
-// var circles = svg.selectAll('circle')
-//   .data(grid_location)
-//   .enter()
-//  .append('circle')
-//   .attr('cx', function (d) {return xScale(d[0])})
-//   .attr('cy', function (d) {return yScale(d[1])})
-//   .attr('r', '9')
-//   .attr('fill', 'blue')
-//   .attr('opacity', 0.5)
-
-console.log(shot_json[i].x)
+console.log(grid_location)
 
 var xScale = d3.scaleLinear()
   .domain([-100, 100])
@@ -132,11 +112,11 @@ var yScale = d3.scaleLinear()
   .range([0, h])
 
 var circles = svg.selectAll('circle')
-  .data(shot_json)
+  .data(grid_location)
   .enter()
  .append('circle')
-  .attr('cx', function (d) {return xScale(shot_json.x)})
-  .attr('cy', function (d) {return yScale(shot_json.y)})
+  .attr('cx', function (d) {return xScale(d[0])})
+  .attr('cy', function (d) {return yScale(d[1])})
   .attr('r', '9')
   .attr('fill', 'blue')
   .attr('opacity', 0.5)
