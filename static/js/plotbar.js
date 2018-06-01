@@ -59,7 +59,7 @@ console.log(nest2);
 
 function plotBar1()  {
 // set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 50, right: 40, bottom: 140, left: 100},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -147,7 +147,7 @@ var svg = d3.select("body").append("svg")
 
 function plotBar2()  {
   // set the dimensions and margins of the graph
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  var margin = {top: 50, right: 40, bottom: 140, left: 100},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   
