@@ -9,7 +9,7 @@ console.log(hit_json);
 var data = [];
 var data1 = []
 var data2 = [];
-var team1 = "Pittsburgh Penguins";
+var team1 = "Vegas Golden Knights";
 var team2 = "Washington Capitals";
 
 for (i = 0; i < shot_json.length; i++) {
