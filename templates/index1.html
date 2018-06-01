@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NHL Heatmap</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+  
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+  
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="bar1" id="bar1"></div>
+      </div>   
+    </div>  
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="bar2" id="bar2"></div>
+      </div>   
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="pie1" id="pie1"></div>
+      </div>
+    
+      <div class="col-md-6">
+        <div class="pie2" id="pie2"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    var shot_data = {{ shot_data|tojson|safe }};
+    var goal_data = {{ goal_data|tojson|safe }};
+    var hit_data = {{ hit_data|tojson|safe }};
+  </script>
+  <script type="text/javascript" src= {{ url_for('static',filename='js/plotbar.js') }}></script>
+  <script type="text/javascript" src= {{ url_for('static',filename='js/plotpie.js') }}></script>
+</body>
+
+</html>
