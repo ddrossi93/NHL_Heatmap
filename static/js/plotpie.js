@@ -56,6 +56,14 @@ var nest2 = d3.nest()
 console.log("nest2:");
 console.log(nest2);
 
+nest1.sort(function(a, b) {
+  return b.value - a.value;
+});
+
+nest2.sort(function(a, b) {
+  return b.value - a.value;
+});
+
 var text = "";
 
 var width = 400;

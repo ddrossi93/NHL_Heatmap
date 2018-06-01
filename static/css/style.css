@@ -10,3 +10,12 @@ body {
 
 .bar2 {
   fill: green;
+}
+
+.bar1:hover {
+  fill: red;
+}  
+
+.bar2:hover {
+  fill: red;
+}  

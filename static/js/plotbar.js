@@ -87,12 +87,16 @@ var svg = d3.select("body").append("svg")
     d.value = +d.value;
   });
 
+  nest1.sort(function(a, b) {
+    return b.value - a.value;
+  });
+
   // Scale the range of the data in the domains
   x.domain(nest1.map(function(d) { return d.key; }));
   y.domain([0, d3.max(nest1, function(d) { return d.value; })]);
 
   // append the rectangles for the bar chart
-  svg.selectAll(".bar1")
+  svg.selectAll("rect")
       .data(nest1)
     .enter().append("rect")
       .attr("class", "bar1")
@@ -141,29 +145,6 @@ var svg = d3.select("body").append("svg")
 };
 
 
-/*
-function plotBar2()  {
-  // format the data
-  nest2.forEach(function(d) {
-    d.value = +d.value;
-  });
-
-  // Scale the range of the data in the domains
-  x.domain(nest2.map(function(d) { return d.key; }));
-  y.domain([0, d3.max(nest2, function(d) { return d.value; })]);
-
-  // append the rectangles for the bar chart
-  svg.selectAll(".bar2")
-      .data(nest2)
-    .enter().append("rect")
-      .attr("class", "bar2")
-      .attr("x", function(d) { return x(d.key); })
-      .attr("width", x.bandwidth())
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); });
-};
-*/
-
 function plotBar2()  {
   // set the dimensions and margins of the graph
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -194,12 +175,16 @@ function plotBar2()  {
     d.value = +d.value;
   });
 
+  nest2.sort(function(a, b) {
+    return b.value - a.value;
+  });
+
   // Scale the range of the data in the domains
   x.domain(nest2.map(function(d) { return d.key; }));
   y.domain([0, d3.max(nest2, function(d) { return d.value; })]);
 
   // append the rectangles for the bar chart
-  svg.selectAll(".bar2")
+  svg.selectAll("rect")
       .data(nest2)
     .enter().append("rect")
       .attr("class", "bar2")
