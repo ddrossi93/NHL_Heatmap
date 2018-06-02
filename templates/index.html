@@ -24,6 +24,7 @@
   <script href=“https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js“></script>
   <script href=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js”></script>
   <script href="https://d3js.org/d3.v4.min.js"></script>
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script type="text/javascript">
     var shot_data = {{ shot_data|tojson|safe }};
     var goal_data = {{ goal_data|tojson|safe }};
@@ -84,7 +85,7 @@
 
             </span>
           </a>
-        </li> 
+        </li>
         <li class="filter list-group-item">
           <lablel for="team">Select Team</lablel>
             <select id="team">
@@ -240,10 +241,11 @@
         </div>
       </div>
     </footer>
-   
+
     <!-- Bootstrap core JavaScript-->
     <script src="{{ url_for('static', filename='js/sb-admin-charts.js') }}"></script>
-<!--     <script src="{{ url_for('static', filename='js/table.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/table.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 <!--     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script> -->
 <!--     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> -->
     <!-- Core plugin JavaScript-->
