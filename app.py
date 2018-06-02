@@ -18,9 +18,9 @@ stats_grabber.get_data()
 
 @app.route("/")
 def index():
-    shot_data = mongo.db.shots.find()
-    goal_data = mongo.db.goals.find()
-    hit_data = mongo.db.hits.find()
+    shot_data = mongo.db.shots.find({}, {'_id': False})
+    goal_data = mongo.db.goals.find({}, {'_id': False})
+    hit_data = mongo.db.hits.find({}, {'_id': False})
     shot_json = dumps(shot_data)
     goal_json = dumps(goal_data)
     hit_json = dumps(hit_data)
