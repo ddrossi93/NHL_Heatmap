@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Vegas Knights vs. Washington Capitols: Game 1</title>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
   <!-- Bootstrap core CSS-->
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -18,12 +18,10 @@
   <!-- Custom styles for this template-->
   <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
   <script href="https://d3js.org/d3.v4.js"></script>
-  <script href="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
-  <script href=“https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js”></script>
-  <script href=“https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js”></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
   <script href=“https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js“></script>
   <script href=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js”></script>
-  <script href="https://d3js.org/d3.v4.min.js"></script>
+
    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script type="text/javascript">
     var shot_data = {{ shot_data|tojson|safe }};
@@ -49,7 +47,7 @@
             <span class="nav-link-text">Game 1 Dashboard</span>
           </a>
         </li>
-
+      <aside class="filters">
         <li class="filter list-group-item">
           <lablel for="team">Select Team</lablel>
             <select id="team" onchange="teamUpdate(this.value)">
@@ -59,14 +57,17 @@
               </select>
         </li>
         <li class="filter list-group-item">
-          <lablel for="player">Select Player</lablel>
+          <lablel for="player">Select Player</lablel><br>
             <select id="player">
               <option value="all">All</option>
               </select>
             </li>
+            <div class="buttonHolder">
             <li>
               <button type="button" name="button" id="update">Update</button>
             </li>
+          </div>
+            </aside>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables.html">
             <i class="fa fa-fw fa-table"></i>
@@ -84,7 +85,6 @@
         </li>
       </ul>
 
-            </span>
           </a>
         </li>
       </ul>
@@ -106,7 +106,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-check-circle"></i>
               </div>
-              <div class="mr-5">100 Total Shots</div>
+              <div class="mr-5"><span id="total-shots"></span> Total Shots</div>
             </div>
 
               </span>
@@ -119,7 +119,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5">10 Goals</div>
+              <div class="mr-5"><span id="total-goals"></span> Goals</div>
             </div>
 
               </span>
@@ -132,7 +132,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-thumbs-o-down"></i>
               </div>
-              <div class="mr-5">20 Hits</div>
+              <div class="mr-5"><span id="total-hits"></span> Hits</div>
             </div>
 
               </span>
@@ -145,7 +145,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-support"></i>
               </div>
-              <div class="mr-5">Who Won?</div>
+              <div class="mr-5">Winner: <span id="game-winner"></span></div>
             </div>
 
               </span>
@@ -166,9 +166,9 @@
       <div class="row">
         <div class="col-lg-8">
           <!-- Example Bar Chart Card-->
-          <div class="card mb-3">
+          <div class="card mb-3" style="width: max-content;">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+              <i class="fa fa-bar-chart"></i> Total Shots Per Player</div>
             <div class="card-body" id='bar1'>
               <div class="row">
                 <div class="col-sm-8 my-auto">
@@ -185,8 +185,8 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
-            <div class="card-body">
-              <canvas id="myPieChart" width="100%" height="100"></canvas>
+            <div class="card-body" id="pie1">
+              <canvas width="100%" height="100"></canvas>
             </div>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
@@ -202,7 +202,7 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Data Table Example</div>
+          <i class="fa fa-table"></i> Raw Player Data</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -234,21 +234,21 @@
     </footer>
 
     <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/sb-admin-charts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/table.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-<!--     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script> -->
-<!--     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> -->
+     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
-<!--     <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <!-- Page level plugin JavaScript-->
     <script src="{{ url_for('static', filename='vendor/chart.js/Chart.min.js') }}"></script>
-<!--     <script src="{{ url_for('static', filename='vendor/datatables/jquery.dataTables.js') }}"></script> -->
-<!--     <script src="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.js') }}"></script> -->
+     <script src="{{ url_for('static', filename='vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.js') }}"></script>
     <!-- Custom scripts for all pages-->
 <!--     <script src="{{ url_for('static', filename='js/sb-admin.js') }}"></script> -->
     <!-- Custom scripts for this page-->
-<!--     <script src="{{ url_for('static', filename='js/sb-admin-datatables.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/sb-admin-datatables.js') }}"></script>
     <!--<script src="{{ url_for('static', filename='js/script.js') }}"></script>-->
   </div>
 </body>

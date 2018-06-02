@@ -188,11 +188,11 @@ function plotRink() {
     .style("stroke-width", border);
 
 
-  var xScale = d3.scale.linear()
+  var xScale = d3.scaleLinear()
   .domain([-100, 100])
   .range([0, w])
 
-  var yScale = d3.scale.linear()
+  var yScale = d3.scaleLinear()
     .domain([-42.5, 42.5])
     .range([0, h])
 
@@ -273,12 +273,12 @@ var team2 = "Washington Capitals";
 
 
 for (i = 0; i < shot_json.length; i++) {
-  data.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "count": 1});
+  data.push({"team":shot_json[i].team, "shooter": shot_json[i].player, "count": 1});
   if (data[i].team == team1)  {
-    data1.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "count": 1});
+    data1.push({"team":shot_json[i].team, "shooter": shot_json[i].player, "count": 1});
   }  
   else  {
-    data2.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "count": 1});  
+    data2.push({"team":shot_json[i].team, "shooter": shot_json[i].player, "count": 1});  
   }  
 };  
 console.log("data:");
@@ -306,6 +306,30 @@ var nest1 = d3.nest()
 console.log("nest1:");
 console.log(nest1);  
 
+//calculate and populate stats
+$('#total-hits').text(hit_json.length);
+$('#total-goals').text(goal_json.length);
+$('#total-shots').text(shot_json.length);
+
+function determineWinner(){
+  var team1 = 0;
+  var team2 = 0;
+$.each(goal_json, function(key,value) {
+
+  if (value.team === 'Vegas Golden Knights'){
+    team1++;
+  }else{
+    team2++
+  }
+}); 
+if (team1 > team2){
+  return 'Vegas Golden Knights';
+}else{
+  return 'Washington Capitals';
+}
+
+}
+$('#game-winner').text(determineWinner());
 
 // team2 nested data
 var nest2 = d3.nest()
@@ -327,7 +351,7 @@ var margin = {top: 50, right: 40, bottom: 140, left: 60},
 var x = d3.scaleBand()
           .rangeRound([0, width])
           .paddingInner(0.1);
-var y = d3.scale.linear()
+var y = d3.scaleLinear()
           .rangeRound([height, 0]);
           
 let svg = d3.select('#bar1').append("svg")
@@ -425,7 +449,7 @@ plotBar1();
 //   var x = d3.scaleBand()
 //             .range([0, width])
 //             .padding(0.1);
-//   var y = d3.scale.linear()
+//   var y = d3.scaleLinear()
 //             .range([height, 0]);
             
 //   var svg = d3.select("body").append("svg")
