@@ -24,7 +24,7 @@ def index():
     shot_json = dumps(shot_data)
     goal_json = dumps(goal_data)
     hit_json = dumps(hit_data)
-    return render_template("index.html", shot_data=shot_json, goal_data=goal_json, hit_data=hit_json)
+    return render_template("table.html", shot_data=shot_json, goal_data=goal_json, hit_data=hit_json)
 
 
 if __name__ == "__main__":
