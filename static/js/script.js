@@ -11,7 +11,7 @@ console.log(hit_json);
   const h = 336
 
 function plotRink() {
-  let svg = d3.select('#myAreaChart')
+  let svg = d3.select('#rink1')
   .append('svg')
   .attr('width', w+20)
   .attr('height', h+20)

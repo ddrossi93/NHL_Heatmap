@@ -7,6 +7,8 @@ shot_json = JSON.parse(shot_data)
 goal_json = JSON.parse(goal_data)
 hit_json = JSON.parse(hit_data)
 
+var data = shot_json
+
 console.log(shot_json);
 console.log(goal_json);
 console.log(hit_json);
@@ -186,11 +188,11 @@ function plotRink() {
     .style("stroke-width", border);
 
 
-  var xScale = d3.scaleLinear()
+  var xScale = d3.scale.linear()
   .domain([-100, 100])
   .range([0, w])
 
-  var yScale = d3.scaleLinear()
+  var yScale = d3.scale.linear()
     .domain([-42.5, 42.5])
     .range([0, h])
 
