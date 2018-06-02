@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-dark bg-dark">
   <span class="navbar-brand mb-0 h1">NHL Heatmap</span>
 </nav>
   <ul>
@@ -38,20 +38,22 @@
     </li>
   </ul>
   <div class='center' id='rink1'></div>
-  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  <div class="table-responsive">
+  <table class="table table-hover table-striped table-dark" id="dataTable" width="100%" cellspacing="0">
     <thead>
       <tr>
         <th>Player</th>
         <th>Team</th>
-        <th>x</th>
-        <th>y</th>
+        <th>X</th>
+        <th>Y</th>
       </tr>
     </thead>
     <tbody>
 
     </tbody>
   </table>
-
+</div>
+<div id="pie"></div>
 
 
   <!-- get game data -->
@@ -68,6 +70,8 @@
   <script src="{{ url_for('static', filename='js/table.js') }}"></script>
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   <script src="{{ url_for('static', filename='js/rink.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
+
 </body>
 
 </html>

@@ -54,5 +54,11 @@ def player_shot(team):
     return jsonify(documents)
 
 
+@app.route("/shots")
+def shots():
+    documents = [doc for doc in mongo.db.shots.find({}, {"_id": 0})]
+    return jsonify(documents)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
