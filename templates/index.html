@@ -47,7 +47,7 @@
             <span class="nav-link-text">Game 1 Dashboard</span>
           </a>
         </li>
-
+      <aside class="filters">
         <li class="filter list-group-item">
           <lablel for="team">Select Team</lablel>
             <select id="team" onchange="teamUpdate(this.value)">
@@ -62,9 +62,12 @@
               <option value="all">All</option>
               </select>
             </li>
+            <div class="buttonHolder">
             <li>
               <button type="button" name="button" id="update">Update</button>
             </li>
+          </div>
+            </aside>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables.html">
             <i class="fa fa-fw fa-table"></i>
@@ -82,7 +85,6 @@
         </li>
       </ul>
 
-            </span>
           </a>
         </li>
       </ul>
