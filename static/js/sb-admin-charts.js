@@ -188,11 +188,11 @@ function plotRink() {
     .style("stroke-width", border);
 
 
-  var xScale = d3.scale.linear()
+  var xScale = d3.scaleLinear()
   .domain([-100, 100])
   .range([0, w])
 
-  var yScale = d3.scale.linear()
+  var yScale = d3.scaleLinear()
     .domain([-42.5, 42.5])
     .range([0, h])
 
@@ -327,7 +327,7 @@ var margin = {top: 50, right: 40, bottom: 140, left: 60},
 var x = d3.scaleBand()
           .rangeRound([0, width])
           .paddingInner(0.1);
-var y = d3.scale.linear()
+var y = d3.scaleLinear()
           .rangeRound([height, 0]);
           
 let svg = d3.select('#bar1').append("svg")
@@ -425,7 +425,7 @@ plotBar1();
 //   var x = d3.scaleBand()
 //             .range([0, width])
 //             .padding(0.1);
-//   var y = d3.scale.linear()
+//   var y = d3.scaleLinear()
 //             .range([height, 0]);
             
 //   var svg = d3.select("body").append("svg")
