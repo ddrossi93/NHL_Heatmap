@@ -325,12 +325,12 @@ var margin = {top: 50, right: 40, bottom: 140, left: 60},
 
 // set the ranges
 var x = d3.scaleBand()
-          .range([0, width])
-          .padding(0.1);
+          .rangeRound([0, width])
+          .paddingInner(0.1);
 var y = d3.scale.linear()
-          .range([height, 0]);
+          .rangeRound([height, 0]);
           
-var svg = d3.select("card-body").append("svg")
+let svg = d3.select('#bar1').append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
