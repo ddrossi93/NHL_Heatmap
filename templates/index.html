@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>NHL Heatmap</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <!-- import d3 -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- import plotly -->
@@ -13,6 +13,9 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">NHL Heatmap</span>
+</nav>
   <ul>
     <li>
       <label for="team">Select Team</label>
@@ -34,10 +37,7 @@
       <button type="button" name="button" id="update">Update</button>
     </li>
   </ul>
-
-  <div class='card-body' id='rink1'>
-
-  </div>
+  <div class='center' id='rink1'></div>
   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
       <tr>
