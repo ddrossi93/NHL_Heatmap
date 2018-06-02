@@ -50,20 +50,21 @@
 
         <li class="filter list-group-item">
           <lablel for="team">Select Team</lablel>
-            <select id="team">
-              <option default value=" ">all</option>
+            <select id="team" onchange="teamUpdate(this.value)">
+              <option value="all">All</option>
+              <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+              <option value="Washington Capitals">Washington Capitals</option>
               </select>
         </li>
         <li class="filter list-group-item">
           <lablel for="player">Select Player</lablel><br>
             <select id="player">
-              <option default value=" ">all</option>
+              <option value="all">All</option>
               </select>
-         <li class="filter list-group-item">
-          <lablel for="shot">Select Shot Type </lablel>
-            <select id="shot">
-              <option default value=" ">all</option>
-              </select>
+            </li>
+            <li>
+              <button type="button" name="button" id="update">Update</button>
+            </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables.html">
             <i class="fa fa-fw fa-table"></i>
@@ -205,7 +206,6 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Event</th>
                   <th>Player</th>
                   <th>Team</th>
                   <th>x</th>
