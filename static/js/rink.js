@@ -1,6 +1,8 @@
-shot_json = JSON.parse(shot_data)
-goal_json = JSON.parse(goal_data)
-hit_json = JSON.parse(hit_data)
+shot_json = JSON.parse(shot_data);
+goal_json = JSON.parse(goal_data);
+hit_json = JSON.parse(hit_data);
+
+var data = shot_json;
 
 console.log(shot_json);
 console.log(goal_json);
@@ -22,7 +24,7 @@ function plotRink() {
     .attr('height', h)
     .attr('width', '4')
     .style('fill', 'red')
-  
+
   const leftGoal = svg.append('rect')
     .attr('x', 36)
     .attr('y', (h/2)-12)
@@ -30,7 +32,7 @@ function plotRink() {
     .attr('width', 16)
     .style('fill', 'black')
     .style('stroke-width', 16)
-  
+
   const rightGoal = svg.append('rect')
     .attr('x', 756)
     .attr('y', (h/2)-12)
@@ -38,7 +40,7 @@ function plotRink() {
     .attr('width', 16)
     .style('fill', 'black')
     .style('stroke-width', 16)
-  
+
   const leftGoalLine = svg.append('rect')
     .attr('x', 48)
     .attr('y', 12)
@@ -108,7 +110,7 @@ function plotRink() {
     .attr('cy', 252)
     .attr('r', 6)
     .attr('fill', 'red')
-  
+
   const leftBlueLine = svg.append('rect')
     .attr('x', 288)
     .attr('y', 0)
@@ -129,7 +131,7 @@ function plotRink() {
     .attr('r', 6)
     .attr('fill', 'red')
     .attr('opacity', 1)
-  
+
   const rightBlueLine = svg.append('rect')
     .attr('x', 504)
     .attr('y', 0)
@@ -165,7 +167,7 @@ function plotRink() {
     .attr('r', 5)
     .attr('fill', 'grey')
 
-  
+
   const bordercolor = 'black'
   const border = 8
   const borderPath = svg.append("rect")
@@ -196,12 +198,12 @@ var team2 = "Washington Capitals";
 
 for (i=0; i < shot_json.length; i++) {
   if (data[i].team == team1)  {
-    Vegas.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "event": shot_json[i].event,"x": shot_json[i].x, "y": shot_json[i].y});
-  }  
+    Vegas.push({"team":shot_json[i].team, "player": shot_json[i].player, "event": shot_json[i].event,"x": shot_json[i].x, "y": shot_json[i].y});
+  }
   else  {
-    Washington.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "event": shot_json[i].event, "x": shot_json[i].x, "y": shot_json[i].y});  
-  }  
-};  
+    Washington.push({"team":shot_json[i].team, "player": shot_json[i].player, "event": shot_json[i].event, "x": shot_json[i].x, "y": shot_json[i].y});
+  }
+};
 
 console.log(Vegas);
 console.log(Washington);
@@ -216,7 +218,7 @@ console.log(Washington);
     .attr('fill', '#041E42')
     .attr('opacity', 0.8)
     .append('title')
-      .text(function (d) {return d.team + '\n' + d.shooter})
+      .text(function (d) {return d.team + '\n' + d.player})
 
   var circles = svg.selectAll('.vegas')
     .data(Vegas)
@@ -228,7 +230,7 @@ console.log(Washington);
     .attr('fill', '#B9975B')
     .attr('opacity', 0.8)
     .append('title')
-      .text(function (d) {return d.team + '\n' + d.shooter})
+      .text(function (d) {return d.team + '\n' + d.player})
 }
 
 plotRink();
