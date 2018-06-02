@@ -27,5 +27,23 @@ def index():
     return render_template("index.html", shot_data=shot_json, goal_data=goal_json, hit_data=hit_json)
 
 
+@app.route("/shots")
+def shots():
+    documents = [doc for doc in mongo.db.shots.find({}, {"_id": 0})]
+    return jsonify(documents)
+
+
+@app.route("/goals")
+def goals():
+    documents = [doc for doc in mongo.db.goals.find({}, {"_id": 0})]
+    return jsonify(documents)
+
+
+@app.route("/hits")
+def hits():
+    documents = [doc for doc in mongo.db.hits.find({}, {"_id": 0})]
+    return jsonify(documents)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
