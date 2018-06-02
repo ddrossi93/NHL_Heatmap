@@ -1,4 +1,4 @@
-// populate option dropdown
+// populate shot dropdown
 Plotly.d3.json("/shots", function(error, response) {
   console.log("dropdown");
   console.log(response);
@@ -13,3 +13,11 @@ Plotly.d3.json("/shots", function(error, response) {
   }
 
 });
+
+function teamChanged(option) {
+  console.log("in team change");
+  console.log(option);
+  var link = window.location.href + "shots";
+  console.log(link);
+  window.location.assign(link)
+}
