@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Table</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var shot_data = {{ shot_data|tojson|safe }};
+      var goal_data = {{ goal_data|tojson|safe }};
+      var hit_data = {{ hit_data|tojson|safe }};
+    </script>
+
+
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Player</th>
+          <th>Team</th>
+          <th>x</th>
+          <th>y</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
+
+    <script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/table.js') }}"></script>
+
+  </body>
+</html>

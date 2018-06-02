@@ -182,8 +182,13 @@ function plotRink() {
 
 
   var xScale = d3.scaleLinear()
+<<<<<<< HEAD
 	.domain([-100, 100])
 	.range([0, w])
+=======
+  .domain([-100, 100])
+  .range([0, w])
+>>>>>>> dev
 
   var yScale = d3.scaleLinear()
     .domain([-42.5, 42.5])
@@ -193,6 +198,7 @@ var Vegas = []
 var Washington = [];
 var team1 = "Vegas Golden Knights";
 var team2 = "Washington Capitals";
+<<<<<<< HEAD
 
 for (i=0; i < shot_json.length; i++) {
   if (shot_json[i].team == team1)  {
@@ -231,4 +237,44 @@ console.log(Washington);
       .text(function (d) {return d.team + '\n' + d.shooter})
 }
 
+=======
+
+for (i=0; i < shot_json.length; i++) {
+  if (data[i].team == team1)  {
+    Vegas.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "event": shot_json[i].event,"x": shot_json[i].x, "y": shot_json[i].y});
+  }  
+  else  {
+    Washington.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "event": shot_json[i].event, "x": shot_json[i].x, "y": shot_json[i].y});  
+  }  
+};  
+
+console.log(Vegas);
+console.log(Washington);
+
+  var circles = svg.selectAll('.washington')
+    .data(Washington)
+    .enter()
+   .append('circle')
+    .attr('cx', function (d) {return xScale(d.x)})
+    .attr('cy', function (d) {return yScale(d.y)})
+    .attr('r', '7.5')
+    .attr('fill', '#041E42')
+    .attr('opacity', 0.8)
+    .append('title')
+      .text(function (d) {return d.team + '\n' + d.shooter})
+
+  var circles = svg.selectAll('.vegas')
+    .data(Vegas)
+    .enter()
+   .append('circle')
+    .attr('cx', function (d) {return xScale(d.x)})
+    .attr('cy', function (d) {return yScale(d.y)})
+    .attr('r', '7.5')
+    .attr('fill', '#B9975B')
+    .attr('opacity', 0.8)
+    .append('title')
+      .text(function (d) {return d.team + '\n' + d.shooter})
+}
+
+>>>>>>> dev
 plotRink();

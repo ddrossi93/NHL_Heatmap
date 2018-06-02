@@ -34,9 +34,8 @@ def get_data():
         if event == 'Shot':
             d = {
                 'event': '',
-                'shooter': '',
+                'player': '',
                 'team': '',
-                'goalie': '',
                 'x': '',
                 'y': ''
             }
@@ -46,17 +45,15 @@ def get_data():
             x = play['coordinates']['x']
             y = play['coordinates']['y']
             d['event'] = event
-            d['shooter'] = shooter
+            d['player'] = shooter
             d['team'] = team
-            d['goalie'] = goalie
             d['x'] = x
             d['y'] = y
         elif event == 'Goal':
             d = {
                 'event': '',
-                'shooter': '',
+                'player': '',
                 'team': '',
-                'goalie': '',
                 'x': '',
                 'y': ''
             }
@@ -69,15 +66,15 @@ def get_data():
             x = play['coordinates']['x']
             y = play['coordinates']['y']
             d['event'] = event
-            d['shooter'] = shooter
+            d['player'] = shooter
             d['team'] = team
-            d['goalie'] = goalie
             d['x'] = x
             d['y'] = y
         elif event == 'Hit':
             d = {
                 'event': '',
-                'hitter': '',
+                'player': '',
+                'team': '',
                 'x': '',
                 'y': ''
             }
@@ -86,7 +83,7 @@ def get_data():
             x = play['coordinates']['x']
             y = play['coordinates']['y']
             d['event'] = event
-            d['hitter'] = hitter
+            d['player'] = hitter
             d['team'] = team
             d['x'] = x
             d['y'] = y
