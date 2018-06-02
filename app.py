@@ -27,53 +27,30 @@ def index():
     return render_template("index.html", shot_data=shot_json, goal_data=goal_json, hit_data=hit_json)
 
 
-@app.route("/<team>/<event>/<player>")
-def index():
-    shot_data = mongo.db.shots.find()
-    goal_data = mongo.db.goals.find()
-    hit_data = mongo.db.hits.find()
+@app.route("/<team>/<player>")
+def team(team, player):
+    if player != "all":
+        shot_data = mongo.db.shots.find(
+            {"player": player}, {"_id": 0})
+        goal_data = mongo.db.goals.find(
+            {"player": player}, {"_id": 0})
+        hit_data = mongo.db.hits.find(
+            {"player": player}, {"_id": 0})
+    else:
+        shot_data = mongo.db.shots.find({"team": team}, {"_id": 0})
+        goal_data = mongo.db.goals.find({"team": team}, {"_id": 0})
+        hit_data = mongo.db.hits.find({"team": team}, {"_id": 0})
+
     shot_json = dumps(shot_data)
     goal_json = dumps(goal_data)
     hit_json = dumps(hit_data)
     return render_template("index.html", shot_data=shot_json, goal_data=goal_json, hit_data=hit_json)
 
 
-@app.route("/shots")
-def shots():
-    documents = [doc for doc in mongo.db.shots.find({}, {"_id": 0})]
-    return jsonify(documents)
-
-
-@app.route("/goals")
-def goals():
-    documents = [doc for doc in mongo.db.goals.find({}, {"_id": 0})]
-    return jsonify(documents)
-
-
-@app.route("/hits")
-def hits():
-    documents = [doc for doc in mongo.db.hits.find({}, {"_id": 0})]
-    return jsonify(documents)
-
-
-@app.route('/shots/<selection>')
-def player_shot(selection):
+@app.route('/shots/<team>')
+def player_shot(team):
     documents = [doc for doc in mongo.db.shots.find(
-        {"player": selection}, {"_id": 0})]
-    return jsonify(documents)
-
-
-@app.route('/goals/<selection>')
-def player_goal(selection):
-    documents = [doc for doc in mongo.db.goals.find(
-        {"player": selection}, {"_id": 0})]
-    return jsonify(documents)
-
-
-@app.route('/hits/<selection>')
-def player_hit(selection):
-    documents = [doc for doc in mongo.db.hits.find(
-        {"player": selection}, {"_id": 0})]
+        {"team": team}, {"_id": 0})]
     return jsonify(documents)
 
 

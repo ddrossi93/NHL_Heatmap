@@ -52,26 +52,20 @@
 
         <li class="filter list-group-item">
           <lablel for="team">Select Team</lablel>
-            <select id="team" onchange="teamChanged(this.value)">
-              <option default value="all">All</option>
-              <option value="VGK">Vegas Golden Knights</option>
-              <option value="WAS">Washington Capitals</option>
-              </select>
-        </li>
-        <li class="filter list-group-item">
-          <lablel for="team">Select Event</lablel>
-            <select id="event">
-              <option default value="all">All</option>
-              <option value="shots">Shots</option>
-              <option value="goals">Goals</option>
-              <option value="hits">Hits</option>
+            <select id="team" onchange="teamUpdate(this.value)">
+              <option value="all">All</option>
+              <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+              <option value="Washington Capitals">Washington Capitals</option>
               </select>
         </li>
         <li class="filter list-group-item">
           <lablel for="player">Select Player</lablel>
             <select id="player">
-              <option default value="all">All</option>
+              <option value="all">All</option>
               </select>
+            </li>
+            <li>
+              <button type="button" name="button" id="update">Update</button>
             </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables.html">
@@ -92,14 +86,6 @@
 
             </span>
           </a>
-        </li>
-        <li class="filter list-group-item">
-          <lablel for="team">Select Team</lablel>
-            <select id="team">
-              <option default value=" ">all</option>
-              </select>
-            </div>
-          </form>
         </li>
       </ul>
     </div>
@@ -222,10 +208,8 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Event</th>
                   <th>Player</th>
                   <th>Team</th>
-                  <th>Hit</th>
                   <th>x</th>
                   <th>y</th>
                 </tr>
