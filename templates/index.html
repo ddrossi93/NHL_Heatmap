@@ -111,7 +111,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-check-circle"></i>
               </div>
-              <div class="mr-5">100 Total Shots</div>
+              <div class="mr-5"><span id="total-shots"></span> Total Shots</div>
             </div>
 
               </span>
@@ -124,7 +124,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5">10 Goals</div>
+              <div class="mr-5"><span id="total-goals"></span> Goals</div>
             </div>
 
               </span>
@@ -137,7 +137,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-thumbs-o-down"></i>
               </div>
-              <div class="mr-5">20 Hits</div>
+              <div class="mr-5"><span id="total-hits"></span> Hits</div>
             </div>
 
               </span>
@@ -150,7 +150,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-support"></i>
               </div>
-              <div class="mr-5">Who Won?</div>
+              <div class="mr-5">Winner: <span id="game-winner"></span></div>
             </div>
 
               </span>
@@ -171,9 +171,9 @@
       <div class="row">
         <div class="col-lg-8">
           <!-- Example Bar Chart Card-->
-          <div class="card mb-3">
+          <div class="card mb-3" style="width: max-content;">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+              <i class="fa fa-bar-chart"></i> Total Shots Per Player</div>
             <div class="card-body" id='bar1'>
               <div class="row">
                 <div class="col-sm-8 my-auto">
@@ -207,7 +207,7 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Data Table Example</div>
+          <i class="fa fa-table"></i> Raw Player Data</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -240,10 +240,10 @@
     </footer>
 
     <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/sb-admin-charts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/table.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
      <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
