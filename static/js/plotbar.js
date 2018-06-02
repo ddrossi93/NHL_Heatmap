@@ -7,10 +7,11 @@ console.log(goal_json);
 console.log(hit_json);
 
 var data = [];
-var data1 = []
+var data1 = [];
 var data2 = [];
 var team1 = "Vegas Golden Knights";
 var team2 = "Washington Capitals";
+
 
 for (i = 0; i < shot_json.length; i++) {
   data.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "count": 1});
@@ -59,7 +60,7 @@ console.log(nest2);
 
 function plotBar1()  {
 // set the dimensions and margins of the graph
-var margin = {top: 50, right: 40, bottom: 140, left: 100},
+var margin = {top: 50, right: 40, bottom: 140, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -121,6 +122,15 @@ var svg = d3.select("body").append("svg")
   svg.append("g")
       .call(d3.axisLeft(y));
 
+  // add y axis label
+  svg.append("text")
+  .attr("transform", "rotate(-90)")
+  .attr("y", 0 - margin.left)
+  .attr("x",0 - (height / 2))
+  .attr("dy", "1em")
+  .style("text-anchor", "middle")
+  .text("Total Shots per player");     
+
 
   // Append a group to the SVG area
   var chart = svg.append("g");
@@ -147,7 +157,7 @@ var svg = d3.select("body").append("svg")
 
 function plotBar2()  {
   // set the dimensions and margins of the graph
-  var margin = {top: 50, right: 40, bottom: 140, left: 100},
+  var margin = {top: 50, right: 40, bottom: 140, left: 60},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   
@@ -208,6 +218,15 @@ function plotBar2()  {
     // add the y Axis
     svg.append("g")
         .call(d3.axisLeft(y));
+
+    // add y axis label
+    svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x",0 - (height / 2))
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .text("Total Shots per player");     
   
   
     // Append a group to the SVG area
