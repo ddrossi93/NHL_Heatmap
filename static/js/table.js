@@ -10,7 +10,6 @@ function renderTable() {
     var fields = Object.keys(entry);
     var $row = $tbody.insertRow(i);
     fields.shift();
-    console.log(entry);
     for (var j = 0; j < fields.length; j++) {
       var field = fields[j];
       var $cell = $row.insertCell(j);
