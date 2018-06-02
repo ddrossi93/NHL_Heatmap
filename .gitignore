@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FLASK .gitignore
 
 # For mac users
@@ -18,3 +19,7 @@ instance/
 __pycache__/
 *.py[cod]
 *$py.class
+=======
+.ipynb_checkpoints/
+.DS_Store
+>>>>>>> origin/hsolis
