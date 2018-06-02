@@ -273,12 +273,12 @@ var team2 = "Washington Capitals";
 
 
 for (i = 0; i < shot_json.length; i++) {
-  data.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "count": 1});
+  data.push({"team":shot_json[i].team, "shooter": shot_json[i].player, "count": 1});
   if (data[i].team == team1)  {
-    data1.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "count": 1});
+    data1.push({"team":shot_json[i].team, "shooter": shot_json[i].player, "count": 1});
   }  
   else  {
-    data2.push({"team":shot_json[i].team, "shooter": shot_json[i].shooter, "count": 1});  
+    data2.push({"team":shot_json[i].team, "shooter": shot_json[i].player, "count": 1});  
   }  
 };  
 console.log("data:");
