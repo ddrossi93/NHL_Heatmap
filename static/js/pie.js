@@ -29,3 +29,42 @@ Plotly.d3.json("/shots", function(error, response) {
   var PIE = document.getElementById('pie');
   Plotly.newPlot(PIE, data);
 })
+
+Plotly.d3.json("/shots", function(error, response) {
+  if (error)
+    return console.warn(error);
+
+  var players = []
+
+  for (var i = 0; i < response.length; i++) {
+    players.push(response[i]['player']);
+
+  }
+
+  console.log(players);
+  var p = [...new Set(players)]
+  console.log(p);
+  var shots = [];
+  for (let value of p) {
+    console.log(value);
+    var count = 0;
+    for (var i = 0; i < players.length; i++) {
+      if (players[i] === value) {
+        count++;
+      }
+    }
+    shots.push(count)
+  }
+
+data = [
+  {
+    "labels": p,
+    "values": shots,
+    "type": "pie"
+  }
+];
+var PIE2 = document.getElementById('pie2');
+Plotly.newPlot(PIE2, data);
+
+
+});
