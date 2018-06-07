@@ -6,7 +6,7 @@ Plotly.d3.json("/shots", function(error, response) {
 
   for (var i = 0; i < response.length; i++) {
     var team = response[i]['team'];
-    if (team == "Vegas Golden Knights") {
+    if (team == "VGK") {
       vgk++;
     } else {
       was++;

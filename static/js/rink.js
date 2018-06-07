@@ -188,8 +188,8 @@ function plotRink() {
 
 var Vegas = []
 var Washington = [];
-var team1 = "Vegas Golden Knights";
-var team2 = "Washington Capitals";
+var team1 = "VGK";
+var team2 = "WAS";
 
 for (i=0; i < shot_json.length; i++) {
   if (data[i].team == team1)  {

@@ -7,7 +7,7 @@ def get_data():
 
     # connect to db
     # TODO: add unique ID to each entry
-    conn = 'mongodb://localhost:27017'
+    conn = 'mongodb://nhl-app:nhlapp1@ds245240.mlab.com:45240/app'
     client = pymongo.MongoClient(conn)
     db = client.app
     client.drop_database('app')
@@ -41,6 +41,10 @@ def get_data():
             }
             shooter = play['players'][0]['player']['fullName']
             team = play['team']['name']
+            if team == "Washington Capitals":
+                team = "WAS"
+            elif team == "Vegas Golden Knights":
+                team = "VGK"
             goalie = play['players'][1]['player']['fullName']
             x = play['coordinates']['x']
             y = play['coordinates']['y']
@@ -63,6 +67,10 @@ def get_data():
                 elif player['playerType'] == 'Goalie':
                     goalie = player['player']['fullName']
             team = play['team']['name']
+            if team == "Washington Capitals":
+                team = "WAS"
+            elif team == "Vegas Golden Knights":
+                team = "VGK"
             x = play['coordinates']['x']
             y = play['coordinates']['y']
             d['event'] = event
@@ -80,6 +88,10 @@ def get_data():
             }
             hitter = play['players'][0]['player']['fullName']
             team = play['team']['name']
+            if team == "Washington Capitals":
+                team = "WAS"
+            elif team == "Vegas Golden Knights":
+                team = "VGK"
             x = play['coordinates']['x']
             y = play['coordinates']['y']
             d['event'] = event
