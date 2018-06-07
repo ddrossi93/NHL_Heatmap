@@ -40,11 +40,18 @@ for (var k = 0; k < list.length; k++) {
     shots[k] = list[k].shots;
 }
 
+var top_shooters = [];
+var top_shots = [];
+
+for (var i = 0; i < 10; i++) {
+  top_shooters.push(p[i]);
+  top_shots.push(shots[i]);
+}
 
   var data = [
     {
-      x: p,
-      y: shots,
+      x: top_shooters,
+      y: top_shots,
       type: 'bar'
     }
   ];
