@@ -19,11 +19,11 @@ stats_grabber.get_data()
 
 @app.route("/")
 def index():
-    client.drop_database('app')
-    stats_grabber.get_data()
     conn = 'mongodb://nhl-app:nhlapp1@ds245240.mlab.com:45240/app'
     client = pymongo.MongoClient(conn)
     db = client.app
+    client.drop_database('app')
+    stats_grabber.get_data()
     shot_data = db.shots.find({}, {'_id': False})
     goal_data = db.goals.find({}, {'_id': False})
     hit_data = db.hits.find({}, {'_id': False})
