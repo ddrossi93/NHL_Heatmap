@@ -16,28 +16,27 @@
 <body>
   <nav class="navbar navbar-dark bg-dark">
   <span class="navbar-brand mb-0 h1">NHL Heatmap</span>
+    <div class="form-group">
+        <label for="team"><span class="navbar-brand mb-0 h1">Team: </span></label>
+        <select class="form-control" id="team" onchange="teamUpdate(this.value)">
+              <option value="all">All</option>
+              <option value="VGK">Vegas Golden Knights</option>
+              <option value="WAS">Washington Capitals</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="player"><span class="navbar-brand mb-0 h1">Player: </span></label>
+        <select class="form-control" id="player">
+        </select>
+    </div>
+    <div class="form-group">
+      <li class="list-inline-item">
+        <button type="button" name="button" id="update" class="btn">Update</button>
+      </li>
+    </div>
 </nav>
-  <ul>
-    <li>
-      <label for="team">Select Team</label>
-      <br>
-      <select id="team" onchange="teamUpdate(this.value)">
-            <option value="all">All</option>
-            <option value="VGK">Vegas Golden Knights</option>
-            <option value="WAS">Washington Capitals</option>
-      </select>
-    </li>
-    <li>
-      <lablel for="player">Select Player</lablel>
-      <br>
-      <select id="player">
-      </select>
-    </li>
-
-    <li>
-      <button type="button" name="button" id="update">Update</button>
-    </li>
-  </ul>
+  <br>
+  <br>
   <div class='center' id='rink1'></div>
   <div id="pie"></div>
   <div id="pie2"></div>
