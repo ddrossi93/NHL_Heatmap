@@ -7,13 +7,8 @@ $updateBtn.addEventListener("click", handleUpdate);
 
 
 function teamUpdate(team) {
-  console.log("in team update");
-  console.log(team);
   // populate player dropdown
   Plotly.d3.json("/shots/"+team, function(error, response) {
-    console.log("dropdown");
-    console.log(response);
-    console.log(response[0]['player']);
     var $select = document.getElementById('player');
     $select.options.length = 0;
     var option = document.createElement("option");

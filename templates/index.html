@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>NHL Heatmap</title>
+  <!-- add bootstrap css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <!-- import d3 -->
@@ -41,6 +42,10 @@
   <div id="pie"></div>
   <div id="pie2"></div>
   <div id="bar"></div>
+  <nav aria-label="Page navigation">
+    <ul class="pagination" id="pagination">
+    </ul>
+  </nav>
   <div class="table-responsive">
   <table class="table table-hover table-striped table-dark" id="dataTable" width="100%" cellspacing="0">
     <thead>
@@ -74,7 +79,6 @@
   <script src="{{ url_for('static', filename='js/rink.js') }}"></script>
   <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bar.js') }}"></script>
-
 
 </body>
 

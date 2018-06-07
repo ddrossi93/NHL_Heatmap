@@ -4,11 +4,6 @@ hit_json = JSON.parse(hit_data);
 
 var data = shot_json;
 
-console.log(shot_json);
-console.log(goal_json);
-console.log(hit_json);
-
-
   const w = 800
   const h = 336
 
@@ -204,9 +199,6 @@ for (i=0; i < shot_json.length; i++) {
     Washington.push({"team":shot_json[i].team, "player": shot_json[i].player, "event": shot_json[i].event, "x": shot_json[i].x, "y": shot_json[i].y});
   }
 };
-
-console.log(Vegas);
-console.log(Washington);
 
   var circles = svg.selectAll('.washington')
     .data(Washington)

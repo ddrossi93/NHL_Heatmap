@@ -9,12 +9,9 @@ Plotly.d3.json("/shots", function(error, response) {
 
   }
 
-  console.log(players);
   var p = [...new Set(players)]
-  console.log(p);
   var shots = [];
   for (let value of p) {
-    console.log(value);
     var count = 0;
     for (var i = 0; i < players.length; i++) {
       if (players[i] === value) {
@@ -24,14 +21,12 @@ Plotly.d3.json("/shots", function(error, response) {
     shots.push(count)
   }
 
-  console.log(shots);
 
 //1) combine the arrays:
 var list = [];
 for (var j = 0; j < p.length; j++)
     list.push({'player': p[j], 'shots': shots[j]});
 
-console.log(list);
 
 //2) sort:
 list.sort(function(a, b) {
@@ -39,15 +34,12 @@ list.sort(function(a, b) {
     //Sort could be modified to, for example, sort on the age
     // if the name is the same.
 });
-console.log(list);
 //3) separate them back out:
 for (var k = 0; k < list.length; k++) {
     p[k] = list[k].player;
     shots[k] = list[k].shots;
 }
 
-console.log(p);
-console.log(shots);
 
   var data = [
     {

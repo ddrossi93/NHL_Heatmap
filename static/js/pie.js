@@ -41,12 +41,9 @@ Plotly.d3.json("/shots", function(error, response) {
 
   }
 
-  console.log(players);
   var p = [...new Set(players)]
-  console.log(p);
   var shots = [];
   for (let value of p) {
-    console.log(value);
     var count = 0;
     for (var i = 0; i < players.length; i++) {
       if (players[i] === value) {
